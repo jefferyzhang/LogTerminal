@@ -102,7 +102,7 @@ namespace LogTerminal
         private void DisplayLogs(IList<LogGroup> logs)
         {
             lbPageIndex.Text = _pager.PageIndex.ToString();
-            dgvDisplayZone.DataSource = _pager.GetPagingItems(logs);
+            dgvDisplayZone.DataSource = _pager.GetPagedItems(logs);
         }
     }
 

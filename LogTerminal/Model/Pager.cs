@@ -19,7 +19,7 @@ namespace LogTerminal
             TotalPageCount = (totalItemCount + PageSize - 1) / PageSize;
         }
 
-        public List<T> GetPagingItems<T>(IList<T> totalItems)
+        public IList<T> GetPagedItems<T>(IList<T> totalItems)
         {
             return totalItems.Skip((PageIndex - 1) * PageSize).Take(PageSize).ToList();
         }
