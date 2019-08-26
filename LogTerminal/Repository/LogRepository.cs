@@ -28,7 +28,6 @@ namespace LogTerminal
 
         /// <summary>
         /// 获取最近的日志
-        /// 顺便
         /// </summary>
         /// <param name="takeCount"></param>
         /// <returns></returns>
@@ -59,11 +58,19 @@ namespace LogTerminal
             }
         }
 
+        /// <summary>
+        /// 获取最新日志
+        /// </summary>
+        /// <returns></returns>
         public LogInfo GetLastLog()
         {
             return GetRecentlyLogs(1).FirstOrDefault();
         }
 
+        /// <summary>
+        /// 获取所有日志
+        /// </summary>
+        /// <returns></returns>
         public IList<LogInfo> GetAllLogs()
         {
             var result = new List<LogInfo>();

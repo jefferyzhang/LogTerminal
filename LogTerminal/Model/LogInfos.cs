@@ -25,15 +25,4 @@ namespace LogTerminal
             return _lastLog ?? LogInfo.Empty;
         }
     }
-
-    public class LogGroup
-    {
-        public DateTime Time { set; get; }
-
-        public string App { set; get; }
-
-        public string Level { set; get; }
-
-        public string Message { set; get; }
-    }
 }

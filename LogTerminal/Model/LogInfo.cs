@@ -3,6 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace LogTerminal
 {
+    /// <summary>
+    /// 日志信息，一个LogInfo 相当于一行日志
+    /// 结构基于FileBeat 推送到Redis上存储的结构(除 File ,MessageTime,SerialNo三个字段）
+    /// </summary>
     public class LogInfo
     {
         public DateTime Timestamp { get; set; }

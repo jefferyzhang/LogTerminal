@@ -20,6 +20,11 @@ namespace LogTerminal
             _logRepository = new LogRepository(RedisConnectionFactory.Of(profile));
         }
 
+        /// <summary>
+        /// 获取最近日志
+        /// </summary>
+        /// <param name="logLevel"></param>
+        /// <returns></returns>
         public LogInfos GetRecentlyLogs(string logLevel)
         {
             var recentlyLogs = _logRepository.GetRecentlyLogs(MaxLogRows);
@@ -33,17 +38,29 @@ namespace LogTerminal
             return new LogInfos(recentlyLogs,lastLog);
         }
 
+        /// <summary>
+        /// 删除老日志
+        /// </summary>
         public void RemoveOldLogs()
         {
             _logRepository.RemoveOldLogs();
         }
 
+        /// <summary>
+        /// 是否有新日志
+        /// </summary>
+        /// <param name="lastLog"></param>
+        /// <returns></returns>
         public bool HasNewLog(LogInfo lastLog)
         {
             var curLastLog = _logRepository.GetLastLog() ?? LogInfo.Empty;
             return lastLog.Message != curLastLog.Message;
         }
 
+        /// <summary>
+        /// 获取所有日志
+        /// </summary>
+        /// <returns></returns>
         public IList<LogGroup> GetAllLogs()
         {
             var logInfos = _logRepository.GetAllLogs();
