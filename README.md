@@ -9,3 +9,6 @@
 
 2.查询模式，查询最近的日志：
 ![image](https://github.com/jefferyzhang/LogTerminal/blob/master/Imgs/search.png)
+
+3.配置,工具内置对两个环境Test&Pre的日志监控，通过下面方式编辑两个环境的redis地址：  
+打开配置文件LogTerminal.exe.config,编辑两个节点redis.test,redis.pre
