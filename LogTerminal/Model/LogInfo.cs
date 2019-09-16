@@ -68,7 +68,9 @@ namespace LogTerminal
 
         public string GetApp()
         {
-            var pathParts = Log.File.Path.Split('\\');
+            var path = Log.File.Path;
+            var isLinuxSystemPath = path.Contains("/");//是否是linux系统路径
+            var pathParts = isLinuxSystemPath? path.Split('/'): path.Split('\\');
             return pathParts[pathParts.Length - 3];
         }
     }
