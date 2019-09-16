@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
+using LogTerminal.Infrastructure;
 
 namespace LogTerminal
 {
@@ -13,6 +15,9 @@ namespace LogTerminal
 
             btnSearch.DoubleClick += BtnSearch_DoubleClick;
             dtpTimeBegin.Value = DateTime.Now.Subtract(TimeSpan.FromMinutes(15));
+            cbApp.DataSource = ConfigurationManager.AppSettings["apps"].Split(',');
+
+            dgvDisplayZone.DoubleBufferedDataGirdView(true);
         }
 
         private IList<LogGroup> _logsInfos=new List<LogGroup>();
@@ -35,7 +40,7 @@ namespace LogTerminal
             var begin = dtpTimeBegin.Value;
             var end = dtpTimeEnd.Value;
             var logLevel = (string) logLevelOption.SelectedItem;
-            var app = tbApp.Text.Trim();
+            var app = cbApp.Text.Trim();
             var keyword = tbKeyword.Text.Trim();
 
             return _logsInfos
@@ -104,22 +109,5 @@ namespace LogTerminal
             lbPageIndex.Text = _pager.PageIndex.ToString();
             dgvDisplayZone.DataSource = _pager.GetPagedItems(logs);
         }
-    }
-
-    public static class EnumerableExt
-    {
-        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> source,bool condition,Predicate<T> predicate )
-        {
-            return condition ? source.Where(x => predicate(x)) : source;
-        }
-    }
-
-    public static class StringExt
-    {
-        public static bool IsNotNullOrWhiteSpace(this string source)
-        {
-            return string.IsNullOrWhiteSpace(source)==false;
-        }
-        
     }
 }

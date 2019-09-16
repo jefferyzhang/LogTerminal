@@ -31,7 +31,7 @@ namespace LogTerminal
         /// </summary>
         /// <param name="takeCount"></param>
         /// <returns></returns>
-        public List<LogInfo> GetRecentlyLogs(long takeCount)
+        public IList<LogInfo> GetRecentlyLogs(long takeCount)
         {
             var totalCount = _db.ListLength(LogKey);
             Debug.WriteLine("logs total count:"+ totalCount);

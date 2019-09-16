@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using LogTerminal;
+using LogTerminal.Infrastructure;
 
 namespace LogTerminal
 {
@@ -24,18 +25,19 @@ namespace LogTerminal
         /// 获取最近日志
         /// </summary>
         /// <param name="logLevel"></param>
+        /// <param name="app"></param>
         /// <returns></returns>
-        public LogInfos GetRecentlyLogs(string logLevel)
+        public LogInfos GetRecentlyLogs(string logLevel, string app)
         {
             var recentlyLogs = _logRepository.GetRecentlyLogs(MaxLogRows);
             var lastLog = recentlyLogs.LastOrDefault();
 
-            if (string.IsNullOrEmpty(logLevel) == false)
-            {
-                recentlyLogs = recentlyLogs.Where(x => x.Message.Contains(logLevel)).ToList();
-            }
+            recentlyLogs = recentlyLogs
+                .WhereIf(logLevel.IsNotNullOrWhiteSpace(), x => x.Message.Contains(logLevel))
+                .WhereIf(app.IsNotNullOrWhiteSpace(), x => x.GetApp().Contains(app))
+                .ToList();
 
-            return new LogInfos(recentlyLogs,lastLog);
+            return new LogInfos(recentlyLogs, lastLog);
         }
 
         /// <summary>

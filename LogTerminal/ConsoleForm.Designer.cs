@@ -36,6 +36,8 @@
             this.lbLevel = new System.Windows.Forms.Label();
             this.displayLogTimer = new System.Windows.Forms.Timer(this.components);
             this.removeOldLogTimer = new System.Windows.Forms.Timer(this.components);
+            this.cbApp = new System.Windows.Forms.ComboBox();
+            this.lbApp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consoleContainer)).BeginInit();
             this.consoleContainer.Panel1.SuspendLayout();
             this.consoleContainer.Panel2.SuspendLayout();
@@ -74,6 +76,8 @@
             // 
             // optionContainer
             // 
+            this.optionContainer.Controls.Add(this.cbApp);
+            this.optionContainer.Controls.Add(this.lbApp);
             this.optionContainer.Controls.Add(this.logLevelOption);
             this.optionContainer.Controls.Add(this.lbLevel);
             this.optionContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,16 +97,16 @@
             "INFO",
             "WARN",
             "ERROR"});
-            this.logLevelOption.Location = new System.Drawing.Point(82, 36);
+            this.logLevelOption.Location = new System.Drawing.Point(61, 107);
             this.logLevelOption.Name = "logLevelOption";
-            this.logLevelOption.Size = new System.Drawing.Size(121, 20);
+            this.logLevelOption.Size = new System.Drawing.Size(162, 20);
             this.logLevelOption.TabIndex = 1;
             this.logLevelOption.SelectedIndexChanged += new System.EventHandler(this.logLevelOption_SelectedIndexChanged);
             // 
             // lbLevel
             // 
             this.lbLevel.AutoSize = true;
-            this.lbLevel.Location = new System.Drawing.Point(26, 39);
+            this.lbLevel.Location = new System.Drawing.Point(14, 110);
             this.lbLevel.Name = "lbLevel";
             this.lbLevel.Size = new System.Drawing.Size(41, 12);
             this.lbLevel.TabIndex = 0;
@@ -117,6 +121,30 @@
             // 
             this.removeOldLogTimer.Interval = 600000;
             this.removeOldLogTimer.Tick += new System.EventHandler(this.removeOldLogTimer_Tick);
+            // 
+            // cbApp
+            // 
+            this.cbApp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbApp.FormattingEnabled = true;
+            this.cbApp.Items.AddRange(new object[] {
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR"});
+            this.cbApp.Location = new System.Drawing.Point(61, 41);
+            this.cbApp.Name = "cbApp";
+            this.cbApp.Size = new System.Drawing.Size(162, 20);
+            this.cbApp.TabIndex = 3;
+            this.cbApp.SelectedIndexChanged += new System.EventHandler(this.cbApp_SelectedIndexChanged);
+            // 
+            // lbApp
+            // 
+            this.lbApp.AutoSize = true;
+            this.lbApp.Location = new System.Drawing.Point(26, 44);
+            this.lbApp.Name = "lbApp";
+            this.lbApp.Size = new System.Drawing.Size(29, 12);
+            this.lbApp.TabIndex = 2;
+            this.lbApp.Text = "App:";
             // 
             // ConsoleForm
             // 
@@ -148,5 +176,7 @@
         private System.Windows.Forms.Label lbLevel;
         private System.Windows.Forms.Timer displayLogTimer;
         private System.Windows.Forms.Timer removeOldLogTimer;
+        private System.Windows.Forms.ComboBox cbApp;
+        private System.Windows.Forms.Label lbApp;
     }
 }

@@ -81,6 +81,9 @@
     <Compile Include="DoubleClickButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Infrastructure\DoubleBufferDataGridView.cs" />
+    <Compile Include="Infrastructure\EnumerableExt.cs" />
+    <Compile Include="Infrastructure\StringExt.cs" />
     <Compile Include="Model\LogGroup.cs" />
     <Compile Include="Service\LogGrouper.cs" />
     <Compile Include="Model\LogInfo.cs" />

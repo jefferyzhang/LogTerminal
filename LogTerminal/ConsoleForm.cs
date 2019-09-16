@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -25,6 +26,9 @@ namespace LogTerminal
             DisplayLogs();
 
             displayLogTimer.Start();
+
+
+            cbApp.DataSource = ConfigurationManager.AppSettings["apps"].Split(',');
         }
 
         private void SetTitle(Profile profile)
@@ -56,8 +60,9 @@ namespace LogTerminal
         private void DisplayLogs()
         {
             var logLevel = (string)logLevelOption.SelectedItem;
+            var app = (string) cbApp.SelectedItem;
 
-            var recentlyLogs = _logService.GetRecentlyLogs(logLevel);
+            var recentlyLogs = _logService.GetRecentlyLogs(logLevel,app);
             _lastLog = recentlyLogs.GetLastLog();
 
             var content = recentlyLogs.GetMessageForDisplay();
@@ -70,6 +75,11 @@ namespace LogTerminal
         private void removeOldLogTimer_Tick(object sender, EventArgs e)
         {
             _logService.RemoveOldLogs();
+        }
+
+        private void cbApp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayLogs();
         }
     }
 }
