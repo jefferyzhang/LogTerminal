@@ -75,10 +75,17 @@ namespace LogTerminal
         {
             var columns = dgvDisplayZone.Columns;
 
-            columns["Time"].FillWeight = 20;
+            columns["Time"].FillWeight = 30;
             columns["App"].FillWeight = 20;
             columns["Level"].FillWeight = 10;
-            columns["Message"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            btn.Name = "btnMore";
+            btn.HeaderText = "";
+            btn.DefaultCellStyle.NullValue = "More";
+            btn.FillWeight = 20;
+
+            columns.Add(btn); 
         }
 
         private void SetTitle(Profile profile)
@@ -108,6 +115,18 @@ namespace LogTerminal
         {
             lbPageIndex.Text = _pager.PageIndex.ToString();
             dgvDisplayZone.DataSource = _pager.GetPagedItems(logs);
+          
+        }
+
+        private void dgvDisplayZone_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDisplayZone.Columns[e.ColumnIndex].Name == "btnMore" && e.RowIndex >= 0)
+            {
+                //说明点击的列是DataGridViewButtonColumn列
+                DataGridViewColumn column = dgvDisplayZone.Columns[e.ColumnIndex];
+
+                MessageBox.Show(Convert.ToString(dgvDisplayZone.CurrentRow.Cells[4].Value));
+            }
         }
     }
 }
