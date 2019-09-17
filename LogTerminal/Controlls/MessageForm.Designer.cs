@@ -51,7 +51,7 @@
             this.Controls.Add(this.consoleDisplay);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MessageForm";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.95D;
             this.Text = "MessageForm";
             this.Load += new System.EventHandler(this.MessageForm_Load);
             this.ResumeLayout(false);
