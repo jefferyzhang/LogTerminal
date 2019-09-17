@@ -70,11 +70,13 @@ namespace LogTerminal
             columns["Level"].FillWeight = 10;
             columns["MessageWithStackTrace"].Visible = false;
 
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.Name = "btnMore";
-            btn.HeaderText = "";
-            btn.DefaultCellStyle.NullValue = "More";
-            btn.FillWeight = 20;
+            var btn = new DataGridViewButtonColumn
+            {
+                Name = "btnMore",
+                HeaderText = "",
+                DefaultCellStyle = {NullValue = "More"},
+                FillWeight = 20
+            };
 
             columns.Add(btn); 
         }
