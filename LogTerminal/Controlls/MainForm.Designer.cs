@@ -104,6 +104,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.Opacity = 0.8D;
             this.Text = "LogTerminal";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

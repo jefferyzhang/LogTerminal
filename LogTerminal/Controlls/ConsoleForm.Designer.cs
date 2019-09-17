@@ -32,12 +32,12 @@
             this.consoleContainer = new System.Windows.Forms.SplitContainer();
             this.consoleDisplay = new System.Windows.Forms.RichTextBox();
             this.optionContainer = new System.Windows.Forms.GroupBox();
+            this.cbApp = new System.Windows.Forms.ComboBox();
+            this.lbApp = new System.Windows.Forms.Label();
             this.logLevelOption = new System.Windows.Forms.ComboBox();
             this.lbLevel = new System.Windows.Forms.Label();
             this.displayLogTimer = new System.Windows.Forms.Timer(this.components);
             this.removeOldLogTimer = new System.Windows.Forms.Timer(this.components);
-            this.cbApp = new System.Windows.Forms.ComboBox();
-            this.lbApp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.consoleContainer)).BeginInit();
             this.consoleContainer.Panel1.SuspendLayout();
             this.consoleContainer.Panel2.SuspendLayout();
@@ -88,6 +88,30 @@
             this.optionContainer.TabStop = false;
             this.optionContainer.Text = "Options";
             // 
+            // cbApp
+            // 
+            this.cbApp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbApp.FormattingEnabled = true;
+            this.cbApp.Items.AddRange(new object[] {
+            "DEBUG",
+            "INFO",
+            "WARN",
+            "ERROR"});
+            this.cbApp.Location = new System.Drawing.Point(61, 41);
+            this.cbApp.Name = "cbApp";
+            this.cbApp.Size = new System.Drawing.Size(162, 20);
+            this.cbApp.TabIndex = 3;
+            this.cbApp.SelectedIndexChanged += new System.EventHandler(this.cbApp_SelectedIndexChanged);
+            // 
+            // lbApp
+            // 
+            this.lbApp.AutoSize = true;
+            this.lbApp.Location = new System.Drawing.Point(26, 44);
+            this.lbApp.Name = "lbApp";
+            this.lbApp.Size = new System.Drawing.Size(29, 12);
+            this.lbApp.TabIndex = 2;
+            this.lbApp.Text = "App:";
+            // 
             // logLevelOption
             // 
             this.logLevelOption.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -122,30 +146,6 @@
             this.removeOldLogTimer.Interval = 600000;
             this.removeOldLogTimer.Tick += new System.EventHandler(this.removeOldLogTimer_Tick);
             // 
-            // cbApp
-            // 
-            this.cbApp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbApp.FormattingEnabled = true;
-            this.cbApp.Items.AddRange(new object[] {
-            "DEBUG",
-            "INFO",
-            "WARN",
-            "ERROR"});
-            this.cbApp.Location = new System.Drawing.Point(61, 41);
-            this.cbApp.Name = "cbApp";
-            this.cbApp.Size = new System.Drawing.Size(162, 20);
-            this.cbApp.TabIndex = 3;
-            this.cbApp.SelectedIndexChanged += new System.EventHandler(this.cbApp_SelectedIndexChanged);
-            // 
-            // lbApp
-            // 
-            this.lbApp.AutoSize = true;
-            this.lbApp.Location = new System.Drawing.Point(26, 44);
-            this.lbApp.Name = "lbApp";
-            this.lbApp.Size = new System.Drawing.Size(29, 12);
-            this.lbApp.TabIndex = 2;
-            this.lbApp.Text = "App:";
-            // 
             // ConsoleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -154,6 +154,7 @@
             this.Controls.Add(this.consoleContainer);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "ConsoleForm";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Console";
             this.Load += new System.EventHandler(this.ConsoleForm_Load);

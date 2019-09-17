@@ -43,6 +43,7 @@
             this.dtpTimeBegin = new System.Windows.Forms.DateTimePicker();
             this.dtpTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.cbApp = new System.Windows.Forms.ComboBox();
+            this.btnSearch = new LogTerminal.DoubleClickButton();
             this.contentSplitor = new System.Windows.Forms.SplitContainer();
             this.dgvDisplayZone = new System.Windows.Forms.DataGridView();
             this.rightSplitor = new System.Windows.Forms.SplitContainer();
@@ -51,7 +52,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPrePage = new System.Windows.Forms.Button();
             this.btnNextPage = new System.Windows.Forms.Button();
-            this.btnSearch = new LogTerminal.DoubleClickButton();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitor)).BeginInit();
             this.mainSplitor.Panel1.SuspendLayout();
             this.mainSplitor.Panel2.SuspendLayout();
@@ -147,7 +147,7 @@
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.1173F));
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
             this.tlpSearchOptions.Controls.Add(this.lbTimeRange, 2, 0);
             this.tlpSearchOptions.Controls.Add(this.lbLevel, 0, 0);
             this.tlpSearchOptions.Controls.Add(this.logLevelOption, 1, 0);
@@ -173,7 +173,7 @@
             this.lbTimeRange.AutoSize = true;
             this.lbTimeRange.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTimeRange.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimeRange.Location = new System.Drawing.Point(287, 0);
+            this.lbTimeRange.Location = new System.Drawing.Point(286, 0);
             this.lbTimeRange.Name = "lbTimeRange";
             this.lbTimeRange.Size = new System.Drawing.Size(136, 30);
             this.lbTimeRange.TabIndex = 6;
@@ -207,7 +207,7 @@
             "ERROR"});
             this.logLevelOption.Location = new System.Drawing.Point(116, 3);
             this.logLevelOption.Name = "logLevelOption";
-            this.logLevelOption.Size = new System.Drawing.Size(165, 24);
+            this.logLevelOption.Size = new System.Drawing.Size(164, 24);
             this.logLevelOption.TabIndex = 3;
             // 
             // lbApp
@@ -227,7 +227,7 @@
             this.lbTo.AutoSize = true;
             this.lbTo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTo.Location = new System.Drawing.Point(287, 30);
+            this.lbTo.Location = new System.Drawing.Point(286, 30);
             this.lbTo.Name = "lbTo";
             this.lbTo.Size = new System.Drawing.Size(136, 30);
             this.lbTo.TabIndex = 7;
@@ -253,7 +253,7 @@
             this.tbKeyword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKeyword.Location = new System.Drawing.Point(116, 63);
             this.tbKeyword.Name = "tbKeyword";
-            this.tbKeyword.Size = new System.Drawing.Size(307, 26);
+            this.tbKeyword.Size = new System.Drawing.Size(306, 26);
             this.tbKeyword.TabIndex = 11;
             // 
             // dtpTimeBegin
@@ -262,7 +262,7 @@
             this.dtpTimeBegin.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dtpTimeBegin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTimeBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTimeBegin.Location = new System.Drawing.Point(429, 3);
+            this.dtpTimeBegin.Location = new System.Drawing.Point(428, 3);
             this.dtpTimeBegin.Name = "dtpTimeBegin";
             this.dtpTimeBegin.Size = new System.Drawing.Size(206, 22);
             this.dtpTimeBegin.TabIndex = 10;
@@ -275,7 +275,7 @@
             this.dtpTimeEnd.CalendarFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTimeEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dtpTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTimeEnd.Location = new System.Drawing.Point(429, 33);
+            this.dtpTimeEnd.Location = new System.Drawing.Point(428, 33);
             this.dtpTimeEnd.Name = "dtpTimeEnd";
             this.dtpTimeEnd.Size = new System.Drawing.Size(206, 22);
             this.dtpTimeEnd.TabIndex = 9;
@@ -292,8 +292,20 @@
             "ERROR"});
             this.cbApp.Location = new System.Drawing.Point(116, 33);
             this.cbApp.Name = "cbApp";
-            this.cbApp.Size = new System.Drawing.Size(165, 22);
+            this.cbApp.Size = new System.Drawing.Size(164, 22);
             this.cbApp.TabIndex = 14;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSearch.Font = new System.Drawing.Font("Consolas", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(0, 0);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(208, 148);
+            this.btnSearch.TabIndex = 0;
+            this.btnSearch.Text = "Go";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // contentSplitor
             // 
@@ -409,18 +421,6 @@
             this.btnNextPage.UseVisualStyleBackColor = true;
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSearch.Font = new System.Drawing.Font("Consolas", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(0, 0);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(208, 148);
-            this.btnSearch.TabIndex = 0;
-            this.btnSearch.Text = "Go";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -429,6 +429,7 @@
             this.Controls.Add(this.mainSplitor);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "SearchForm";
+            this.Opacity = 0.9D;
             this.Text = "SearchPanel";
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.mainSplitor.Panel1.ResumeLayout(false);
