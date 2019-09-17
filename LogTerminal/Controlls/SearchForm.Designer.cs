@@ -147,7 +147,7 @@
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.1173F));
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
+            this.tlpSearchOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tlpSearchOptions.Controls.Add(this.lbTimeRange, 2, 0);
             this.tlpSearchOptions.Controls.Add(this.lbLevel, 0, 0);
             this.tlpSearchOptions.Controls.Add(this.logLevelOption, 1, 0);
@@ -173,7 +173,7 @@
             this.lbTimeRange.AutoSize = true;
             this.lbTimeRange.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTimeRange.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTimeRange.Location = new System.Drawing.Point(295, 0);
+            this.lbTimeRange.Location = new System.Drawing.Point(287, 0);
             this.lbTimeRange.Name = "lbTimeRange";
             this.lbTimeRange.Size = new System.Drawing.Size(136, 30);
             this.lbTimeRange.TabIndex = 6;
@@ -187,7 +187,7 @@
             this.lbLevel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLevel.Location = new System.Drawing.Point(3, 0);
             this.lbLevel.Name = "lbLevel";
-            this.lbLevel.Size = new System.Drawing.Size(110, 30);
+            this.lbLevel.Size = new System.Drawing.Size(107, 30);
             this.lbLevel.TabIndex = 2;
             this.lbLevel.Text = "Level:";
             this.lbLevel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -205,9 +205,9 @@
             "INFO",
             "WARN",
             "ERROR"});
-            this.logLevelOption.Location = new System.Drawing.Point(119, 3);
+            this.logLevelOption.Location = new System.Drawing.Point(116, 3);
             this.logLevelOption.Name = "logLevelOption";
-            this.logLevelOption.Size = new System.Drawing.Size(170, 24);
+            this.logLevelOption.Size = new System.Drawing.Size(165, 24);
             this.logLevelOption.TabIndex = 3;
             // 
             // lbApp
@@ -217,7 +217,7 @@
             this.lbApp.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbApp.Location = new System.Drawing.Point(3, 30);
             this.lbApp.Name = "lbApp";
-            this.lbApp.Size = new System.Drawing.Size(110, 30);
+            this.lbApp.Size = new System.Drawing.Size(107, 30);
             this.lbApp.TabIndex = 4;
             this.lbApp.Text = "App:";
             this.lbApp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -227,7 +227,7 @@
             this.lbTo.AutoSize = true;
             this.lbTo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbTo.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTo.Location = new System.Drawing.Point(295, 30);
+            this.lbTo.Location = new System.Drawing.Point(287, 30);
             this.lbTo.Name = "lbTo";
             this.lbTo.Size = new System.Drawing.Size(136, 30);
             this.lbTo.TabIndex = 7;
@@ -241,7 +241,7 @@
             this.lbMessage.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMessage.Location = new System.Drawing.Point(3, 60);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(110, 33);
+            this.lbMessage.Size = new System.Drawing.Size(107, 33);
             this.lbMessage.TabIndex = 13;
             this.lbMessage.Text = "Message:";
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -251,9 +251,9 @@
             this.tlpSearchOptions.SetColumnSpan(this.tbKeyword, 2);
             this.tbKeyword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbKeyword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKeyword.Location = new System.Drawing.Point(119, 63);
+            this.tbKeyword.Location = new System.Drawing.Point(116, 63);
             this.tbKeyword.Name = "tbKeyword";
-            this.tbKeyword.Size = new System.Drawing.Size(312, 26);
+            this.tbKeyword.Size = new System.Drawing.Size(307, 26);
             this.tbKeyword.TabIndex = 11;
             // 
             // dtpTimeBegin
@@ -262,7 +262,7 @@
             this.dtpTimeBegin.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dtpTimeBegin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpTimeBegin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTimeBegin.Location = new System.Drawing.Point(437, 3);
+            this.dtpTimeBegin.Location = new System.Drawing.Point(429, 3);
             this.dtpTimeBegin.Name = "dtpTimeBegin";
             this.dtpTimeBegin.Size = new System.Drawing.Size(206, 22);
             this.dtpTimeBegin.TabIndex = 10;
@@ -275,7 +275,7 @@
             this.dtpTimeEnd.CalendarFont = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpTimeEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.dtpTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTimeEnd.Location = new System.Drawing.Point(437, 33);
+            this.dtpTimeEnd.Location = new System.Drawing.Point(429, 33);
             this.dtpTimeEnd.Name = "dtpTimeEnd";
             this.dtpTimeEnd.Size = new System.Drawing.Size(206, 22);
             this.dtpTimeEnd.TabIndex = 9;
@@ -290,9 +290,9 @@
             "INFO",
             "WARN",
             "ERROR"});
-            this.cbApp.Location = new System.Drawing.Point(119, 33);
+            this.cbApp.Location = new System.Drawing.Point(116, 33);
             this.cbApp.Name = "cbApp";
-            this.cbApp.Size = new System.Drawing.Size(170, 22);
+            this.cbApp.Size = new System.Drawing.Size(165, 22);
             this.cbApp.TabIndex = 14;
             // 
             // contentSplitor
@@ -325,6 +325,7 @@
             this.dgvDisplayZone.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDisplayZone.Size = new System.Drawing.Size(1050, 509);
             this.dgvDisplayZone.TabIndex = 0;
+            this.dgvDisplayZone.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDisplayZone_CellContentClick);
             // 
             // rightSplitor
             // 

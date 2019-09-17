@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using LogTerminal;
 using LogTerminal.Infrastructure;
 
 namespace LogTerminal
@@ -67,6 +66,18 @@ namespace LogTerminal
         {
             var logInfos = _logRepository.GetAllLogs();
             return _logGrouper.Group(logInfos);
+        }
+
+        public IList<LogGroup> FilterLogs(IList<LogGroup> logs, DateTime begin, DateTime end, string logLevel, string app, string keyword)
+        {
+            return logs
+                .Where(x => begin <= x.Time && x.Time <= end)
+                .WhereIf(logLevel.IsNotNullOrWhiteSpace(), x => x.Level == logLevel)
+                // ReSharper disable once AssignNullToNotNullAttribute
+                .WhereIf(app.IsNotNullOrWhiteSpace(), x => x.App.Contains(app))
+                // ReSharper disable once AssignNullToNotNullAttribute
+                .WhereIf(keyword.IsNotNullOrWhiteSpace(), x => x.Message.Contains(keyword))
+                .ToList();
         }
     }
 }

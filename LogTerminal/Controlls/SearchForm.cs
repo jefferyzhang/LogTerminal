@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Windows.Forms;
-using LogTerminal.Infrastructure;
 
 namespace LogTerminal
 {
@@ -14,10 +12,9 @@ namespace LogTerminal
             InitializeComponent();
 
             btnSearch.DoubleClick += BtnSearch_DoubleClick;
-            dtpTimeBegin.Value = DateTime.Now.Subtract(TimeSpan.FromMinutes(15));
+            dtpTimeBegin.Value = DateTime.Now.AddHours(-1);
+            dtpTimeEnd.Value = DateTime.Now.AddMinutes(15);
             cbApp.DataSource = ConfigurationManager.AppSettings["apps"].Split(',');
-
-            dgvDisplayZone.DoubleBufferedDataGirdView(true);
         }
 
         private IList<LogGroup> _logsInfos=new List<LogGroup>();
@@ -43,14 +40,7 @@ namespace LogTerminal
             var app = cbApp.Text.Trim();
             var keyword = tbKeyword.Text.Trim();
 
-            return _logsInfos
-                .Where(x => begin <= x.Time && x.Time <= end)
-                .WhereIf(logLevel.IsNotNullOrWhiteSpace(), x => x.Level == logLevel)
-                // ReSharper disable once AssignNullToNotNullAttribute
-                .WhereIf(app.IsNotNullOrWhiteSpace(), x => x.App.Contains(app))
-                // ReSharper disable once AssignNullToNotNullAttribute
-                .WhereIf(keyword.IsNotNullOrWhiteSpace(), x => x.Message.Contains(keyword))
-                .ToList();
+            return _logService.FilterLogs(_logsInfos, begin, end, logLevel, app, keyword);
         }
 
         private void BtnSearch_DoubleClick(object sender, EventArgs e)
@@ -75,9 +65,10 @@ namespace LogTerminal
         {
             var columns = dgvDisplayZone.Columns;
 
-            columns["Time"].FillWeight = 30;
+            columns["Time"].FillWeight = 20;
             columns["App"].FillWeight = 20;
             columns["Level"].FillWeight = 10;
+            columns["MessageWithStackTrace"].Visible = false;
 
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             btn.Name = "btnMore";
@@ -118,14 +109,19 @@ namespace LogTerminal
           
         }
 
+        //显示包含堆栈信息的消息
         private void dgvDisplayZone_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvDisplayZone.Columns[e.ColumnIndex].Name == "btnMore" && e.RowIndex >= 0)
             {
-                //说明点击的列是DataGridViewButtonColumn列
-                DataGridViewColumn column = dgvDisplayZone.Columns[e.ColumnIndex];
+                if (dgvDisplayZone.CurrentRow != null)
+                {
+                    var messageWithStackTrace = Convert.ToString(dgvDisplayZone.CurrentRow.Cells[4].Value);
 
-                MessageBox.Show(Convert.ToString(dgvDisplayZone.CurrentRow.Cells[4].Value));
+                    new MessageForm()
+                        .WithContent(messageWithStackTrace)
+                        .Show();
+                }
             }
         }
     }

@@ -36,7 +36,7 @@ namespace LogTerminal
                     {
                         logGroup = new LogGroup()
                         {
-                            Message = orderedLog.Message,
+                            MessageWithStackTrace = orderedLog.Message,
                             App = orderedLog.GetApp(),
                             Time = orderedLog.MessageTime.Value,
                             Level = orderedLog.Level
@@ -47,8 +47,8 @@ namespace LogTerminal
 
                     if (logGroup != null)
                     {
-                        logGroup.Message += Environment.NewLine;
-                        logGroup.Message += orderedLog.Message;
+                        logGroup.MessageWithStackTrace += Environment.NewLine;
+                        logGroup.MessageWithStackTrace += orderedLog.Message;
                     }
                 }
             }

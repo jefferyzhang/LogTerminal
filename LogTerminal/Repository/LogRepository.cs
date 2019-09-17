@@ -17,9 +17,8 @@ namespace LogTerminal
 
         private static readonly string LogKey = ConfigurationManager.AppSettings["log.key"];
         private static readonly int REDIS_MAX_CACHE_LINE = int.Parse(ConfigurationManager.AppSettings["redis.cache.line"]);
-        private static readonly int TRIM_CACHE_BATCH_SIZE = 200;
-        private static readonly int SEARCH_MAX_LINE = 20000;//最多搜索2万行日志
-        private static readonly int FETCH_MAX_LINE = 1000;
+        private static readonly int TRIM_CACHE_BATCH_SIZE = 20;
+        private static readonly int FETCH_BATCH_SIZE = 50;
 
         public LogRepository(RedisConnectionFactory redisConnectionFactory)
         {
@@ -76,19 +75,19 @@ namespace LogTerminal
             var result = new List<LogInfo>();
 
             var totalCount = _db.ListLength(LogKey);
-            var skipLogCount = totalCount <= SEARCH_MAX_LINE ? 0 : totalCount - SEARCH_MAX_LINE;
+            var skipLogCount = totalCount <= REDIS_MAX_CACHE_LINE ? 0 : totalCount - REDIS_MAX_CACHE_LINE;
             var startFetchIndex = skipLogCount;
 
             while (true)
             {
-                var redisValues = _db.ListRange(LogKey, startFetchIndex, startFetchIndex + FETCH_MAX_LINE);
+                var redisValues = _db.ListRange(LogKey, startFetchIndex, startFetchIndex + FETCH_BATCH_SIZE);
                 result.AddRange(redisValues.Select(x => JsonConvert.DeserializeObject<LogInfo>(x)));
 
-                if (redisValues.Length < FETCH_MAX_LINE)
+                if (redisValues.Length < FETCH_BATCH_SIZE)
                 {
                     break;
                 }
-                startFetchIndex += FETCH_MAX_LINE;
+                startFetchIndex += FETCH_BATCH_SIZE;
             }
 
             return result;
