@@ -15,6 +15,7 @@ namespace LogTerminal
             dtpTimeBegin.Value = DateTime.Now.AddHours(-1);
             dtpTimeEnd.Value = DateTime.Now.AddMinutes(15);
             cbApp.DataSource = ConfigurationManager.AppSettings["apps"].Split(',');
+            _pager.PageSize = int.Parse(ConfigurationManager.AppSettings["page.size"]);
         }
 
         private IList<LogGroup> _logsInfos=new List<LogGroup>();
